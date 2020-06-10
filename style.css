@@ -1,5 +1,25 @@
-#timer {
-    float: right;
+#highscores {
+    float: left;
+    margin-left: 10px;
 }
 
-.l
+#timer {
+    float: right;
+    margin-right: 10px;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+#codingquiz {
+    text-align: center;
+}
+
+#instructions {
+    text-align: center;
+    font-size: 18px;
+}
+
+.btn-primary {
+}
