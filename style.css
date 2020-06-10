@@ -21,5 +21,9 @@
     font-size: 18px;
 }
 
+#question {
+    text-align: center;
+}
+
 .btn-primary {
 }
