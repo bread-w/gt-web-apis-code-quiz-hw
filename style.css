@@ -34,6 +34,14 @@
     float: left;
 }
 
-#answer-buttons {
+.answer-buttons {
     margin-top: 5px;
+}
+
+#front-page {
+    display: block;
+}
+
+#quiz-page {
+    display: none;
 }
