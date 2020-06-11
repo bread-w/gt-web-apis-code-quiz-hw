@@ -9,6 +9,7 @@ var answersEl = document.getElementsByClassName("answers");
 var scorePageEl = document.getElementById("score-page");
 var resultsPageEl = document.getElementById("results-page");
 var resultDisplayEl = document.getElementById("result-display");
+var finalScoreEl = document.getElementById("final-score");
 var secondsLeft = 75;
 var timerInterval;
 
@@ -85,6 +86,11 @@ function getResult(e) {
     quizPageEl.style.display = "none";
     resultsPageEl.style.display = "none";
     scorePageEl.style.display = "block";
+    finalScoreEl.innerHTML = "Your final score is " + secondsLeft + ".";
+    clearInterval(timerInterval);
+    // capture seconds left in timer and display it as .final-score
+    // using finalScoreEl to take secondsLeft and store into
+    // clearInterval(timerInterval);
   } else {
     showQuestions();
   }
