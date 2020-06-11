@@ -46,3 +46,11 @@
 #quiz-page {
     display: none;
 }
+
+#score-page {
+    display: none;
+}
+
+#results-page {
+    display: block;
+}

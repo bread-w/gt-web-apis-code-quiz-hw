@@ -6,6 +6,11 @@ var frontPageEl = document.getElementById("front-page");
 var quizPageEl = document.getElementById("quiz-page");
 var questionEl = document.getElementById("question");
 var answersEl = document.getElementsByClassName("answers");
+var scorePageEl = document.getElementById("score-page");
+var resultsPageEl = document.getElementById("results-page");
+var resultDisplayEl = document.getElementById("result-display");
+var secondsLeft = 75;
+var timerInterval;
 
 var currentQuestionsIndex = 0;
 
@@ -39,7 +44,7 @@ var questions = [
     question:
       "String values must be enclosed within _____ when being assigned to variables.",
     answers: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
-    correct_answer: "1. commas",
+    correct_answer: "3. quotes",
   },
   {
     question:
@@ -66,15 +71,40 @@ function showQuestions() {
     answerList.append(answerBtn);
     answerBtn.setAttribute("class", "btn btn-secondary");
     answerBtn.textContent = currentQuestionPage.answers[i];
+    answerBtn.addEventListener("click", getResult);
   }
 }
 
-secondsLeft = 75;
+function getResult(e) {
+  console.log(e);
+  checkResult(e.target.textContent);
+  document.getElementById("question").innerHTML = "";
+  document.querySelector(".answers-ul").innerHTML = "";
+  currentQuestionsIndex++;
+  if (currentQuestionsIndex === questions.length) {
+    quizPageEl.style.display = "none";
+    resultsPageEl.style.display = "none";
+    scorePageEl.style.display = "block";
+  } else {
+    showQuestions();
+  }
+}
+
+function checkResult(result) {
+if (result === questions[currentQuestionsIndex].correct_answer){
+resultDisplayEl.textContent = "Correct!"
+}else {
+  resultDisplayEl.textContent = "Incorrect!"
+  secondsLeft -= 15;
+}
+}
+
+
 
 function startTimer() {
   frontPageEl.style.display = "none";
   quizPageEl.style.display = "block";
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timerEl.textContent = "Time: " + secondsLeft;
   }, 1000);
