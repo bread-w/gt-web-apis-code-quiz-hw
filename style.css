@@ -30,11 +30,12 @@
     font-weight: bold;
 }
 
-.answers {
+.answers-ul {
     float: left;
+    list-style: none;
 }
 
-.answer-buttons {
+.btn-secondary {
     margin-top: 5px;
 }
 
