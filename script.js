@@ -20,6 +20,21 @@ var questions = [
     question: "The condition in an if/else statement is enclosed within _____.",
     answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
     correct_answer: "2. curly brackets",
+  },
+  {
+    question: "Arrays in Javascript can be used to store _____.",
+    answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+    correct_answer: "4. all of the above",
+  },
+  {
+    question: "String values must be enclosed within _____ when being assigned to variables.",
+    answers: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+    correct_answer: "1. commas",
+  },
+  {
+    question: "A very useful tool used during development and debugging for printing content to the debugger",
+    answers: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
+    correct_answer: "4. console.log",
   }
 ]
 
