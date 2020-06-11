@@ -8,6 +8,10 @@
     margin-right: 10px;
 }
 
+#timerdisplay {
+    float: right;
+}
+
 .container {
     padding-top: 50px;
 }
