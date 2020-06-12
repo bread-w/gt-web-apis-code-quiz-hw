@@ -67,6 +67,8 @@ var questions = [
   },
 ];
 
+// Timer starts on the start quiz button click
+
 function startTimer() {
   frontPageEl.style.display = "none";
   quizPageEl.style.display = "block";
@@ -76,6 +78,10 @@ function startTimer() {
   }, 1000);
   showQuestions();
 }
+
+// Quiz question and answers will dynamically generate on start quiz button
+// The below function generates questions and answers using the for loop
+// Answers will dynamically generate as li under the .answer-ul
 
 function showQuestions() {
   var currentQuestionPage = questions[currentQuestionsIndex];
@@ -92,6 +98,8 @@ function showQuestions() {
     answerBtn.addEventListener("click", getResult);
   }
 }
+
+// Get result will move through the question index and iterate, while the if/else will target end of quiz
 
 function getResult(e) {
   console.log(e);
@@ -110,6 +118,9 @@ function getResult(e) {
   }
 }
 
+// Wrong and right answers will generate correct or incorrect based on selection. Text content for correct answers corresponds to
+// questions[currentQuestionsIndex].correct_answer, all others are incorrect
+
 function checkResult(result) {
   if (result === questions[currentQuestionsIndex].correct_answer) {
     resultDisplayEl.textContent = "Correct!";
@@ -119,7 +130,11 @@ function checkResult(result) {
   }
 }
 
+// event listener for timer start
+
 startQuizEl.addEventListener("click", startTimer);
+
+// click submit on score page will save intials and time (saved as score) to local storage
 
 submitScoreEl.addEventListener("click", function (e) {
   event.preventDefault();
@@ -147,21 +162,19 @@ function showHighScores() {
   }
 }
 
-restartQuizEl.addEventListener("click", function(e) {
-event.preventDefault();
-if (event.target.matches("#restart-quiz")) {
-  location.reload();
-}
-});
+// The following 2 buttons, restart-quiz reloads
+//clear scores will clear local storage and erase dynamically generate high score
 
-restartQuizEl.addEventListener("click", function(e) {
+restartQuizEl.addEventListener("click", function (e) {
+  event.preventDefault();
   if (event.target.matches("#restart-quiz")) {
     location.reload();
   }
-  });
+});
 
-  clearScoresEl.addEventListener("click", function(e){
-    if (event.target.matches("#clear-scores")) {
-      window.localStorage.clear();
-       }highScoreStorage.innerHTML = "";
-  })
+clearScoresEl.addEventListener("click", function (e) {
+  if (event.target.matches("#clear-scores")) {
+    window.localStorage.clear();
+  }
+  highScoreStorage.innerHTML = "";
+});
