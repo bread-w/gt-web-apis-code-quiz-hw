@@ -9,7 +9,12 @@ var answersEl = document.getElementsByClassName("answers");
 var scorePageEl = document.getElementById("score-page");
 var resultsPageEl = document.getElementById("results-page");
 var resultDisplayEl = document.getElementById("result-display");
+var highScorePageEl = document.getElementById("highscore-page");
+var highScoreStorage = document.getElementById("highscore-storage");
 var finalScoreEl = document.getElementById("final-score");
+var submitScoreEl = document.getElementById("submit-score");
+var initialsEl = document.getElementById("initials");
+var highScoreBank = [];
 var secondsLeft = 75;
 var timerInterval;
 
@@ -17,7 +22,7 @@ var currentQuestionsIndex = 0;
 
 var questions = [
   {
-    question: "Commonly used types of date DO NOT include:",
+    question: "Commonly used types of data DO NOT include:",
     answers: ["1. string", "2. booleans", "3. alerts", "4. numbers"],
     correct_answer: "3. alerts",
   },
@@ -60,6 +65,16 @@ var questions = [
   },
 ];
 
+function startTimer() {
+  frontPageEl.style.display = "none";
+  quizPageEl.style.display = "block";
+  timerInterval = setInterval(function () {
+    secondsLeft--;
+    timerEl.textContent = "Time: " + secondsLeft;
+  }, 1000);
+  showQuestions();
+}
+
 function showQuestions() {
   var currentQuestionPage = questions[currentQuestionsIndex];
   console.log(questions[currentQuestionsIndex].question);
@@ -88,33 +103,44 @@ function getResult(e) {
     scorePageEl.style.display = "block";
     finalScoreEl.innerHTML = "Your final score is " + secondsLeft + ".";
     clearInterval(timerInterval);
-    // capture seconds left in timer and display it as .final-score
-    // using finalScoreEl to take secondsLeft and store into
-    // clearInterval(timerInterval);
   } else {
     showQuestions();
   }
 }
 
 function checkResult(result) {
-if (result === questions[currentQuestionsIndex].correct_answer){
-resultDisplayEl.textContent = "Correct!"
-}else {
-  resultDisplayEl.textContent = "Incorrect!"
-  secondsLeft -= 15;
-}
-}
-
-
-
-function startTimer() {
-  frontPageEl.style.display = "none";
-  quizPageEl.style.display = "block";
-  timerInterval = setInterval(function () {
-    secondsLeft--;
-    timerEl.textContent = "Time: " + secondsLeft;
-  }, 1000);
-  showQuestions();
+  if (result === questions[currentQuestionsIndex].correct_answer) {
+    resultDisplayEl.textContent = "Correct!";
+  } else {
+    resultDisplayEl.textContent = "Incorrect!";
+    secondsLeft -= 15;
+  }
 }
 
 startQuizEl.addEventListener("click", startTimer);
+
+submitScoreEl.addEventListener("click", function (e) {
+  event.preventDefault();
+  console.log(initialsEl);
+  if (event.target.matches("#submit-score")) {
+    highScoreBank.push({ initials: initialsEl.value, score: secondsLeft });
+    console.log(highScoreBank);
+    localStorage.setItem("highScore", JSON.stringify(highScoreBank));
+    submitScoreEl.innerHTML = "";
+    showHighScores();
+  }
+});
+function showHighScores() {
+  scorePageEl.style.display = "none";
+  highScorePageEl.style.display = "block";
+  var highScore = JSON.parse(localStorage.getItem("highScore"));
+
+  for (var i = 0; i < highScore.length; i++) {
+    var leaderBoard = document.createElement("li");
+    document.getElementById("highscore-storage").append(leaderBoard);
+    leaderBoard.setAttribute("class", "leaderBoards")
+    leaderBoard.textContent =
+      highScore[i].initials + " scored " + highScore[i].score + " points!";
+    highScoreStorage.append(leaderBoard);
+  }
+}

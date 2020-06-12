@@ -54,3 +54,11 @@
 #results-page {
     display: block;
 }
+
+#highscore-page {
+    display: none;
+}
+
+.leaderBoards {
+    list-style: none;
+}
