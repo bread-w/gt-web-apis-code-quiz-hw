@@ -1,1 +1,0 @@
-# gt-web-apis-code-quiz-hw

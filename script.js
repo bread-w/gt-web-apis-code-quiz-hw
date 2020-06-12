@@ -162,6 +162,6 @@ restartQuizEl.addEventListener("click", function(e) {
 
   clearScoresEl.addEventListener("click", function(e){
     if (event.target.matches("#clear-scores")) {
-      localStorage.clear();
-    }
+      window.localStorage.clear();
+       }highScoreStorage.innerHTML = "";
   })
