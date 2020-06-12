@@ -1,0 +1,99 @@
+#highscores {
+    float: left;
+    margin-left: 10px;
+    text-decoration: underline;
+    color: purple;
+
+}
+
+#timer {
+    float: right;
+    margin-right: 10px;
+}
+
+#timerdisplay {
+    float: right;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+#codingquiz {
+    text-align: center;
+}
+
+#instructions {
+    text-align: center;
+    font-size: 18px;
+}
+
+#question {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.answers-ul {
+    float: left;
+    list-style: none;
+}
+
+.btn-secondary {
+    margin-top: 5px;
+}
+
+#front-page {
+    display: block;
+}
+
+#quiz-page {
+    display: none;
+}
+
+#score-page {
+    display: none;
+}
+
+#results-page {
+    display: block;
+}
+
+#result-display {
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+
+#highscore-page {
+    display: none;
+}
+
+#initial-bank {
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#final-score {
+    font-weight: bold;
+    font-size: 24px;
+    color: green;
+}
+
+#scores-final {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 32px;
+    color: red;
+}
+
+.leaderBoards {
+    list-style: none;
+}
+
+#highscores-banner {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 32px;
+    color: red;
+}
