@@ -32,6 +32,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## URL
 
-[Link to deployed webpage]()
+[Link to deployed webpage](https://bread-w.github.io/gt-web-apis-code-quiz-hw/.)
 
-[Link to GitHub repository]()
+[Link to GitHub repository](https://github.com/bread-w/gt-web-apis-code-quiz-hw/pull/1)
