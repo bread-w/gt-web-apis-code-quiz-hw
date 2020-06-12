@@ -14,6 +14,8 @@ var highScoreStorage = document.getElementById("highscore-storage");
 var finalScoreEl = document.getElementById("final-score");
 var submitScoreEl = document.getElementById("submit-score");
 var initialsEl = document.getElementById("initials");
+var restartQuizEl = document.getElementById("restart-quiz");
+var clearScoresEl = document.getElementById("clear-scores");
 var highScoreBank = [];
 var secondsLeft = 75;
 var timerInterval;
@@ -138,9 +140,28 @@ function showHighScores() {
   for (var i = 0; i < highScore.length; i++) {
     var leaderBoard = document.createElement("li");
     document.getElementById("highscore-storage").append(leaderBoard);
-    leaderBoard.setAttribute("class", "leaderBoards")
+    leaderBoard.setAttribute("class", "leaderBoards");
     leaderBoard.textContent =
       highScore[i].initials + " scored " + highScore[i].score + " points!";
     highScoreStorage.append(leaderBoard);
   }
 }
+
+restartQuizEl.addEventListener("click", function(e) {
+event.preventDefault();
+if (event.target.matches("#restart-quiz")) {
+  location.reload();
+}
+});
+
+restartQuizEl.addEventListener("click", function(e) {
+  if (event.target.matches("#restart-quiz")) {
+    location.reload();
+  }
+  });
+
+  clearScoresEl.addEventListener("click", function(e){
+    if (event.target.matches("#clear-scores")) {
+      localStorage.clear();
+    }
+  })
