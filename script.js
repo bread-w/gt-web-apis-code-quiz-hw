@@ -97,7 +97,7 @@ function getResult(e) {
   document.getElementById("question").innerHTML = "";
   document.querySelector(".answers-ul").innerHTML = "";
   currentQuestionsIndex++;
-  if (currentQuestionsIndex === questions.length) {
+  if (currentQuestionsIndex === questions.length || secondsLeft < 0) {
     quizPageEl.style.display = "none";
     resultsPageEl.style.display = "none";
     scorePageEl.style.display = "block";
